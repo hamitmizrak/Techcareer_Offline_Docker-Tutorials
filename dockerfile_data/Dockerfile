@@ -66,11 +66,11 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 # Dockerfile Çalıştırma
 # Dockerfile özel bir isimle vermişsek 
 
-# docker build -t app_project .
+# docker build -t node_project .
 # docker build .
 
 
 
 # docker ps 
-# docker container run  --name nodeJS -d -p 9999:9999 app_project
-# docker container run  --name nodeJS -d -p 3333:9999 app_project
+# docker container run  --name nodeJS -d -p 9999:9999 node_project
+# docker container run  --name nodeJS -d -p 3333:9999 node_project

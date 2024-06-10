@@ -70,7 +70,6 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 # docker build .
 
 
-
 # docker ps 
 # docker container run  --name nodeJS -d -p 9999:9999 app_project
 # docker container run  --name nodeJS -d -p 3333:9999 app_project
