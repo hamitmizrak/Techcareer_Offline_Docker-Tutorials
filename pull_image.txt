@@ -1,0 +1,6 @@
+docker pull ubuntu
+docker pull alpine
+docker pull centos
+docker pull nginx
+docker pull mysql
+docker pull httpd
