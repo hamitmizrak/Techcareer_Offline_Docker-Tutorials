@@ -1,0 +1,18 @@
+docker login 
+username
+password 
+
+-------------
+DockerHub => Repository oluştur 
+docker push javahamitmizrak/my_nodejs:tagname
+
+-------------
+Dockerfile ile Kendi image'i oluştur. 
+Image Name: node_project
+docker image tag  <IMAGE_NAME> <DOCKER_HUB_REPOSITORY> 
+docker image tag  node_project:latest  javahamitmizrak/my_nodejs
+docker push javahamitmizrak/my_nodejs
+
+docker pull javahamitmizrak/my_nodejs
+docker container run -d -p  5555:9999 --name my_docker_hub_image javahamitmizrak/my_nodejs
+
