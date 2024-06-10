@@ -1,16 +1,16 @@
 # Dockerfile: Kendi image dosyalarımızı oluşturmak için
 
 # FROM: Çalıştıracağımız image gösteriri
-# İmage olarak Node.js kullandım
-FROM node:14
+# İmage olarak Ubuntu kullandım
+FROM python:3.9-slim
 
 # LABEL: Bilgilendirmek
 LABEL maintainer="hamitmizrak@gmail.com"
 
 # ENV:  ortam değişkenleri
-ENV APP_NAME="Node Js, Dockerfile"
+ENV APP_NAME="Ubuntu, Dockerfile"
 ENV VERSION="v1.0.0"
-ENV PORT="9999"
+ENV PORT="2222"
 
 RUN echo "App Name: $APP_NAME" 
 RUN echo "Port: $PORT"
@@ -21,27 +21,21 @@ VOLUME /tmp
 
 # WORKDIR: Çalışma dizini
 # Uygulama için dosya yolu dizini oluştur
-WORKDIR /usr/src/app
+WORKDIR /app
 # WORKDIR C:\app # Windows İşletim sistemi
 
-# COPY: image kopyalama için 
-# package.json ve packege-lock.json dosyalarını kopyala 
-COPY package*.json  ./
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
-# RUN: İmage için gerekli yüklemeleri
-# Bağımlılıkları yükle 
-RUN npm install
+COPY . . 
 
-# Uygulamada kodları kopyala
-COPY . .
-# COPY . C:\app # Windows İşletim sistemi
 
 # EXPOSE: Port numarası
-EXPOSE 9999
+EXPOSE 3333
 
 # CMD: Gerekli yüklemek olduktan sonra çalışmasını isteyeceğimiz komutlar
 # Uygulamayı başlat
-CMD ["npm","start"]
+CMD ["python3","app.py"]
 # CMD ["powershell.exe","start"]
 
 # USER: Kullanıcı göstersin USER poweruser
@@ -66,11 +60,11 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 # Dockerfile Çalıştırma
 # Dockerfile özel bir isimle vermişsek 
 
+# Eğer Dockerfile ismidnen farklı bir isim kullanırsanız (-f) yazmalısınız
+# docker build -f DockerfilePython3 -t python_project .
 # docker build -t app_project .
 # docker build .
 
-
-
 # docker ps 
-# docker container run  --name nodeJS -d -p 9999:9999 app_project
-# docker container run  --name nodeJS -d -p 3333:9999 app_project
+# docker container run  --name pythonData -d -p 3333:3333 app_project
+# docker container run  --name pythonData4 -d -p 4444:3333 app_project

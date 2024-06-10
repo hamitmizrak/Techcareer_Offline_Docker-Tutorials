@@ -1,16 +1,16 @@
 # Dockerfile: Kendi image dosyalarımızı oluşturmak için
 
 # FROM: Çalıştıracağımız image gösteriri
-# İmage olarak Node.js kullandım
-FROM node:14
+# İmage olarak Ubuntu kullandım
+FROM ubuntu:latest
 
 # LABEL: Bilgilendirmek
 LABEL maintainer="hamitmizrak@gmail.com"
 
 # ENV:  ortam değişkenleri
-ENV APP_NAME="Node Js, Dockerfile"
+ENV APP_NAME="Ubuntu, Dockerfile"
 ENV VERSION="v1.0.0"
-ENV PORT="9999"
+ENV PORT="2222"
 
 RUN echo "App Name: $APP_NAME" 
 RUN echo "Port: $PORT"
@@ -24,24 +24,19 @@ VOLUME /tmp
 WORKDIR /usr/src/app
 # WORKDIR C:\app # Windows İşletim sistemi
 
-# COPY: image kopyalama için 
-# package.json ve packege-lock.json dosyalarını kopyala 
-COPY package*.json  ./
 
 # RUN: İmage için gerekli yüklemeleri
 # Bağımlılıkları yükle 
-RUN npm install
+RUN apt-get update && apt-get install -y python3
+# RUN pip install flask
 
-# Uygulamada kodları kopyala
-COPY . .
-# COPY . C:\app # Windows İşletim sistemi
 
 # EXPOSE: Port numarası
-EXPOSE 9999
+EXPOSE 2222
 
 # CMD: Gerekli yüklemek olduktan sonra çalışmasını isteyeceğimiz komutlar
 # Uygulamayı başlat
-CMD ["npm","start"]
+CMD ["python3","app.py"]
 # CMD ["powershell.exe","start"]
 
 # USER: Kullanıcı göstersin USER poweruser
@@ -66,6 +61,8 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 # Dockerfile Çalıştırma
 # Dockerfile özel bir isimle vermişsek 
 
+# Eğer Dockerfile ismidnen farklı bir isim kullanırsanız (-f) yazmalısınız
+# docker build -f DockerfileUbuntu -t python_project .
 # docker build -t app_project .
 # docker build .
 
