@@ -1,0 +1,5 @@
+# Dockerfile Çalıştırma
+docker build .
+
+# Dockerfile özel bir isimle vermişsek 
+docker build -t app_project .

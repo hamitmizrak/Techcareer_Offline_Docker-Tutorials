@@ -1,0 +1,16 @@
+{
+  "name": "docker-tutorials",
+  "version": "1.0.0",
+  "description": "[Docker GitHub](https://github.com/hamitmizrak/Techcareer_Offline_Docker-Tutorials)",
+  "main": "Node-Js,",
+  "scripts": {
+    "start": "node Tech.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
