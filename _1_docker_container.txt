@@ -29,22 +29,77 @@ docker container run --publish 81:80 --detach nginx
 docker container run --publish 82:80 --detach --name nginx_my1 nginx
 docker container run --publish 83:80 --detach --name nginx_my3 nginx
 docker container run --publish 84:80 --detach --name nginx_my4 --rm nginx
+docker container run --publish 85:80 --detach --name nginx_my5 --rm nginx:latest
+docker container run --publish 86:80 --detach --name nginx_my6 --rm nginx:1.14
+
+docker container run --publish 1111:80  --name apache_my1 httpd
+
+docker container run -p 87:80 -d --name nginx_my8 --rm nginx
+sudo apt-get install curl 
+curl localhost:8888
+
+-- LIST (CONTAINER)
+docker ps
+docker container ps
+docker container ls 
+docker container ls -a
 
 
+-- STOP 
+docker container stop <CONTAINER_ID>
+docker container stop <CONTAINER_NAME>
+docker container stop 568e5cf521c8 3c9b352b32e5 2df803256987
+
+-- START 
+docker container run -p 90:80 -d --name nginx_my8 nginx 
+docker ps  
+docker ps -a
+docker container stop a369ec5420a5
+docker container start nginx_my8
+docker ps 
+
+
+-- DELETE
+docker container ls -a 
+docker container stop <CONTAINER_ID>
+docker container rm <CONTAINER_ID>
+docker container rm <CONTAINER_NAME>
+docker container rm fd79bf97f41f 9ec0c0792b8e 83d7a4bb6721
+
+
+-- DELETE FORCE 
+docker container rm -f <CONTAINER_ID>
+docker container rm -f <CONTAINER_NAME>
+
+
+-- PRUNE DELETE 
+docker container prune 
+
+
+
+
+
+
+---------------------------------------------------------------
+ERROR
+1-
+docker container rm  267a14209476
+Error response from daemon: cannot remove container "/nginx_my5": container is running: stop the container before removing or force remove
+    
+
+2-
 Container aynı isim verirsek; 
 docker: Error response from daemon: Conflict. The container name "/nginx_my1" is already in use by container "fcbd56c8331317b51c9130d5b13dc20c629dcc591255c37d24cef908e82c1fee". 
 You have to remove (or rename
 ) that container to be able to reuse that name.
 See 'docker run --help'.
 
-
+3-
 Container Aynı porta isim verirsek;
 docker: Error response from daemon: driver failed programming external connectivity on endpoint nginx_my2 (c9e5bc321663a5ac00bec7b7cf5251fa16bde8e9562979f5a1db0ef894c580c2): 
 Bind for 0.0.0.0:82 failed: port is already allocated.
 
-
-
-
+---------------------------------------------------------------
 docker container --help
 Commands:
   attach      Attach local standard input, output, and error streams to a running container
