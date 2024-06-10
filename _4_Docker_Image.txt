@@ -1,0 +1,11 @@
+docker image --help
+docker image ls
+docker image ls -a
+docker image history javahamitmizrak/my_nodejs
+docker image rm javahamitmizrak/my_nodejs
+
+# Kullanılmayan Docker imajlarını temizlemek için kullanılı
+docker image prune
+docker image prune -a # Bütün kullanılmayan image
+docker image prune -a -f # onay istemeden temizlemeye zorla
+docker image prune -a --filter "until=24h" # Belirli tarihten önce oluşturulmuş imajları sil
