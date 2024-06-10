@@ -1,0 +1,3 @@
+wsl --version
+wsl --update
+wsl --version
