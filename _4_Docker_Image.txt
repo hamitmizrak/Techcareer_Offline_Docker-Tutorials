@@ -1,8 +1,10 @@
 docker image --help
 docker image ls
 docker image ls -a
+docker images
 docker image history javahamitmizrak/my_nodejs
 docker image rm javahamitmizrak/my_nodejs
+docker rmi <IMAGE_ID>
 
 # Kullanılmayan Docker imajlarını temizlemek için kullanılı
 docker image prune
