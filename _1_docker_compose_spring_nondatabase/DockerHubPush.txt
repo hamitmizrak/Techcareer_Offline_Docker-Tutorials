@@ -1,0 +1,55 @@
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+Sadece Dockerfile varsa
+STEP-1 (DOCKERFILE)
+Dockerfile
+# docker build -t spring_boot_project .
+
+# Eğer Dockerfile isminden farklı bir isim kullanırsanız (-f) yazmalısınız
+# docker build -f DockerfileJavaSpring -t spring_boot_project .
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+dccker-compose varsa (Dockerfile STEP-1 adımını geçebilirsiniz.)
+STEP-2 (docker-compose up)
+
+# docker-compose --version
+# docker-compose up
+# docker-compose up -d
+# docker-compose -f my_docker_compose.yml up
+# docker-compose down
+# docker-compose restart
+# docker-compose ps
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+STEP-3 (Docker Login)
+docker login
+username:
+password:
+
+https://hub.docker.com
+DockerHubtan Repository oluştur (docker_spring_boot_non_database)
+
+https://hub.docker.com/repository/docker/javahamitmizrak/docker_spring_boot_non_database/general
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+STEP-4
+docker image ls (IMAGE ADINI ALINIZ)
+
+docker image tag <IMAGE_NAME> <MY_DOCKER_HUB_REPOSITORY_NAME>
+docker image tag spring_react javahamitmizrak/docker_spring_boot_non_database
+
+docker push <MY_DOCKER_HUB_REPOSITORY_NAME>
+docker push javahamitmizrak/docker_spring_boot_non_database
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+STEP-5
+docker pull <MY_DOCKER_HUB_REPOSITORY_NAME>
+docker pull javahamitmizrak/docker_spring_boot_non_database
+
+docker container run -d -p 4444:4444 --name spring_boot --rm <IMAGE_NAME>
+docker container run -d -p 4444:4444 --name spring_boot --rm javahamitmizrak/docker_spring_boot_non_database
+

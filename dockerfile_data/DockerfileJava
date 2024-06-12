@@ -69,6 +69,9 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 # docker build -t app_project .
 # docker build .
 
+# Eğer Dockerfile ismidnen farklı bir isim kullanırsanız (-f) yazmalısınız
+# docker build -f DockerfilePython3 -t python_project .
+
 
 # docker ps 
 # docker container run  --name nodeJS -d -p 9999:9999 app_project
