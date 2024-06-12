@@ -1,0 +1,24 @@
+# docker-compose --version
+# docker-compose up
+# docker-compose up -d
+# docker-compose -f my_docker_compose.yml up
+# docker-compose -f h2db_docker_compose.yml up
+# docker-compose down
+# docker-compose restart
+# docker-compose ps
+
+# restart: on-failure
+# restart: no => default olandır. Yani docker compose otomatik olarak restart yapsın
+# restart: unless-stopped => Konteynar durduğunda otomatik olarak yeniden başlasın
+# restart: always => Konteynar her zaman otomatik başlasın
+# restart: on-failure => konteryanar çökmesi halinde otomatik başlasın
+
+services:
+  backend_web:
+    container_name: spring_h2
+    image: spring_h2
+    restart: on-failure
+    #build: ./deneme/
+    build: ./
+    ports:
+      - "4444:4444"
