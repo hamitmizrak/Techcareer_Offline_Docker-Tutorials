@@ -26,10 +26,14 @@ docker container ls -a
 docker container start -ai <container_ID>
 docker container start -ai a0e6dd5bf824
 
+-ai
+i: interactive: Etkileşimli modda standart girişi açık tutar. 
+a: --attach : konteynar çıktısına bağlanmaya yarar.
+
 docker ps -a
 docker container start containerID 
 docker container exec -it <containerID> bash
- 
+
 (Kapatılmış container tekrar çalıştır ve terminale bağlan)
 docker container start a0e6dd5bf824 
 winpty docker container exec -it a0e6dd5bf824 bash 
