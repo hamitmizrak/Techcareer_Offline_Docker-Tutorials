@@ -1,0 +1,37 @@
+1-- Çalışan bir container bağlanmak
+docker ps 
+docker images
+docker container run -d -p 1111:80 --name nginx_terminal nginx 
+docker ps 
+docker container exec -it <container_ID> bash 
+docker container exec -it a0e6dd5bf824 bash 
+winpty docker container exec -it a0e6dd5bf824 bash 
+docker container exec -it <container_NAME> bash 
+
+exec: Çalışan bir container içinde yeni bir komut vey süreçi başlatmak içindir
+-it 
+i: interactive: Etkileşimli modda standart girişi açık tutar. 
+t: tty pseudo-TTY(terminali) atama yapar)
+bash: Konteynar içinde çalıştırılacak bir komuttur. Unix shell komutudur. Etkileşimli terminalinine oturumunu sağlar
+
+
+2-- Yeni container oluştur ve sonra terminaline bağlan 
+winpty  docker container run -it --name yeniContainerADI nginx bash 
+
+
+3-- Durdurulmuş(kapatılmış) Containerinin terminaline bağlan 
+docker ps 
+docker container stop <container_ID>
+docker container ls -a
+docker container start -ai <container_ID>
+docker container start -ai a0e6dd5bf824
+
+docker ps -a
+docker container start containerID 
+docker container exec -it <containerID> bash
+ 
+(Kapatılmış container tekrar çalıştır ve terminale bağlan)
+docker container start a0e6dd5bf824 
+winpty docker container exec -it a0e6dd5bf824 bash 
+
+
