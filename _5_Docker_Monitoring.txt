@@ -1,0 +1,37 @@
+docker ps 
+docker container ls 
+docker container ls -a
+
+container ID:   c74c9548396d
+container NAME: spring_h2
+docker logs <CONTAINER_NAME>
+docker logs <CONTAINER_ID>
+
+docker logs c74c9548396d
+docker logs spring_h2
+
+-- Sondan 10 kayıtı getir
+docker logs --tail 10  c74c9548396d
+
+-- Logları canlı olarak takip et
+docker logs -f c74c9548396d
+
+
+-- TOP: Çalışan containerlar hakkında görüntülemek
+docker top c74c9548396d
+
+
+-- INSPECT: Config ayarlarını sistem özelliklerini görmek
+docker container ls 
+docker inspect CONTAINER_NAME
+docker inspect CONTAINER_ID
+docker inspect c74c9548396d
+
+docker images
+docker inspect IMAGE_NAME
+docker inspect IMAGE_ID
+docker inspect e0491bb0b23d
+
+-- STATS: CPU,bellek,ağ 
+docker stats container_ID 
+docker stats c74c9548396d
