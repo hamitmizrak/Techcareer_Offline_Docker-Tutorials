@@ -1,0 +1,19 @@
+//    Backend Project Url  : http://localhost:4444/
+//    Frontend Project Url : http://localhost:3000/
+//    Database Url         : http://localhost:4444/h2-console
+//    Swagger Ui           : http://localhost:4444/swagger-ui/index.html
+
+//    Blog Category
+//    http://localhost:4444/blog/category/api/v1/speed/10
+//    http://localhost:4444/blog/category/api/v1/list
+//    http://localhost:4444/blog/category/api/v1/find/1
+
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/blog?createDatabaseIfNotExist=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+spring.datasource.username=root
+spring.datasource.password=root
+
+
+docker-compose -f mysqldb_docker_compose.yml up
