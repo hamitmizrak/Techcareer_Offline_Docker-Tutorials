@@ -1,0 +1,33 @@
+docker images
+docker ps
+docker ps -a
+
+# Çalışan bir container'a bağlanmak
+docker container exec -it <CONTAINER_ID> bash
+winpty docker container exec -it <CONTAINER_ID> bash
+
+winpty docker container exec -it spring_postgres bash
+winpty docker container exec -it postgres bash
+
+# Postgresql Database bağlanmak
+docker ps
+docker container exec -it <containerID> psql -U postgres
+winpty docker container exec -it ebfbe797a56e psql -U postgres
+
+
+# Yeni bir container oluştur ve bağlanmak
+docker container run -it --name deneme postgres bash
+winpty docker container run -it --name deneme postgres bash
+
+##########################################
+Postgres Komutları
+q: Çıkış
+\q : Çıkış
+Veritabanı Listelensin: \l (lüleburgaz)
+
+\c blog (Database bağlansın)
+SELECT * FROM blog;
+
+\dt : (Tabloları Listelemek)
+
+\d blog_category (Tablo özelliklerini gösteriyor)
