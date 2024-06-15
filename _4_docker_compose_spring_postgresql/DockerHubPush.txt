@@ -31,7 +31,7 @@ password:
 https://hub.docker.com
 DockerHubtan Repository oluştur (docker_spring_boot_non_database)
 
-https://hub.docker.com/repository/docker/javahamitmizrak/docker_spring_boot_non_database/general
+https://hub.docker.com/repository/docker/javahamitmizrak/docker_spring_boot_postgresdb/general
 
 -----------------------------------------------------------------
 -----------------------------------------------------------------
@@ -39,17 +39,17 @@ STEP-4
 docker image ls (IMAGE ADINI ALINIZ)
 
 docker image tag <IMAGE_NAME> <MY_DOCKER_HUB_REPOSITORY_NAME>
-docker image tag spring_react javahamitmizrak/docker_spring_boot_non_database
+docker image tag spring_react javahamitmizrak/docker_spring_boot_postgresdb
 
 docker push <MY_DOCKER_HUB_REPOSITORY_NAME>
-docker push javahamitmizrak/docker_spring_boot_non_database
+docker push javahamitmizrak/docker_spring_boot_postgresdb
 
 -----------------------------------------------------------------
 -----------------------------------------------------------------
 STEP-5
 docker pull <MY_DOCKER_HUB_REPOSITORY_NAME>
-docker pull javahamitmizrak/docker_spring_boot_non_database
+docker pull javahamitmizrak/docker_spring_boot_postgresdb
 
 docker container run -d -p 4444:4444 --name spring_boot --rm <IMAGE_NAME>
-docker container run -d -p 4444:4444 --name spring_boot --rm javahamitmizrak/docker_spring_boot_non_database
+docker container run -d -p 4444:4444 --name spring_boot --rm javahamitmizrak/docker_spring_boot_postgresdb
 

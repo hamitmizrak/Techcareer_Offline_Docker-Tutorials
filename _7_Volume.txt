@@ -1,0 +1,27 @@
+docker search nginx 
+docker pull nginx 
+
+docker ps 
+docker ps -a
+docker container ls 
+docker container ls -a 
+docker container run -d -p   1111:80 --name nginx_data nginx
+
+winpty docker container run -it nginx bash (Yeni bir container oluştur terminale bağlan)
+winpty docker container exec -it <containerID> bash (Çalışan bir container terminal ile bağlan)
+winpty docker container exec -it nginx_data bash (Çalışan bir container terminal ile bağlan)
+
+
+docker container run --help 
+
+cd /usr/share/nginx
+cat /usr/share/nginx/html/index.html
+vi /usr/share/nginx/html/index.html
+
+
+C:\Users\Hamit_Mizrak\Desktop\nginx\index.html 
+docker container run -d -p 2222:80 --name web_nginx2 -v C:\\Users\\Hamit_Mizrak\\Desktop\\nginx:/usr/share/nginx/html nginx
+winpty docker container exec -it web_nginx2 bash
+cat /usr/share/nginx/html/index.html
+
+############################################################################
