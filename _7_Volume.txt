@@ -1,3 +1,5 @@
+BIND MOUND (URL)
+
 docker search nginx 
 docker pull nginx 
 
@@ -25,3 +27,78 @@ winpty docker container exec -it web_nginx2 bash
 cat /usr/share/nginx/html/index.html
 
 ############################################################################
+docker volume ls 
+
+docker volume create mysql_data
+docker volume inspect mysql_data
+docker volume rm mysql_data
+
+docker container run -d -p 3333:3306 --rm  mysql_data:/mysql mysql
+
+########################################################################
+Volume Örneği (Mysql)
+docker search mysql 
+docker pull mysql:8.0 
+docker ps 
+docker ps -a
+docker images
+netstat -nlptu
+
+# Destinination: Volumes: "/var/lib/mysql"
+###################
+
+### STEP-1
+docker volume create mysql_db
+docker volume ls 
+# docker volume inspect mysql_db
+# docker volume rm mysql_db
+
+docker container run -d -p 3434:3306 --name firstVolume -e  MYSQL_ROOT_PASSWORD=root -v mysql_db:/var/lib/mysql   mysql:8.0
+
+# 1.YOL
+winpty docker container exec -it specialMysql mysql -u root -p
+
+# Database oluştur
+CREATE SCHEMA `docker_volume` DEFAULT CHARACTER SET utf8 COLLATE utf8_turkish_ci;
+
+# Database seç
+use  docker_volume;
+
+# Table oluştur 
+CREATE TABLE `docker_volume`.`teacher` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(450) NULL,
+  `surname` VARCHAR(450) NULL,
+  `created_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`));
+
+
+
+# Tabloya veri ekle 
+INSERT INTO `docker_volume`.`teacher`(`name`,`surname`) VALUES('Hamit','Mızrak');
+INSERT INTO `docker_volume`.`teacher`(`name`,`surname`) VALUES('Deneme','deneme');
+
+# Tablodan veri göster 
+select * from `docker_volume`.`teacher`;
+
+SHOW DATABASES;
+exit 
+exit 
+docker container rm firstVolume
+#############################################################
+
+# STEP-2 (Silinmiş container Bilgisini almak)
+
+docker run -d \
+  --name success_container \
+  -e MYSQL_ROOT_PASSWORD=root \
+  -e MYSQL_DATABASE=mydatabase \
+  -e MYSQL_USER=myuser \
+  -e MYSQL_PASSWORD=root \
+  -v mysql_db:/var/lib/mysql \
+  mysql:8.0
+
+winpty docker container exec -it success_container bash 
+mysql -u root -p 
+password: root
+SHOW DATABASES;
